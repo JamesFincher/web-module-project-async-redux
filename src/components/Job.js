@@ -1,7 +1,5 @@
 import React from "react";
 
 function Job() {
-  return <div>Indiviual Job</div>;
+  return <div>Indivvcbxcviual Job</div>;
 }
-
-export default Job;
