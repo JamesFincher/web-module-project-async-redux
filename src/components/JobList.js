@@ -4,7 +4,15 @@ import { connect } from "react-redux";
 import * as actions from "../state/action-creators";
 
 function JobList(props) {
-  return <div>list of jobs</div>;
+  const { jobs } = props;
+  console.log(jobs);
+
+  return (
+    <div>
+      <h1>Job List</h1>
+      <Job jobs={jobs} />
+    </div>
+  );
 }
 
 export default connect((state) => state, actions)(JobList);
