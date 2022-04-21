@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import * as types from "./action-types";
+import axios from "axios";
 
 const initialJobs = [
   {
@@ -22,6 +23,9 @@ function jobs(jobsStateSlice = initialJobs, action) {
   switch (action.type) {
     case types.ADD_NEW_JOB: {
       return [...jobsStateSlice, action.payload];
+    }
+    case types.POPULATE_JOBS: {
+      return action.payload;
     }
     default:
       return jobsStateSlice;

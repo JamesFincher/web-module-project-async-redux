@@ -1,16 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
 
 function Job(props) {
-  const { jobs } = props;
-  console.log(jobs);
-  return jobs.map((job) => (
-    <div key={job.id}>
-      <h4>Title: {job.jobTitle}</h4>
-      <a href={job.JobLink}>Source</a>
-      <p>Notes: {job.notes}</p>
-      {job.researched ? <p>Researched</p> : <p>Not Researched</p>}
+  const { job, key } = props;
+  return (
+    <div id={key}>
+      <h2>{job.jobTitle}</h2>
+      <p>{job.jobLink}</p>
+      <p>{job.researched}</p>
+      <p>{job.notes}</p>
     </div>
-  ));
+  );
 }
 
-export default Job;
+export default connect((state) => state, {})(Job);

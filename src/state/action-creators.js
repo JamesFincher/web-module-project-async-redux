@@ -29,3 +29,15 @@ export const resetForm = () => {
     payload: {},
   };
 };
+
+export const fetchJobsFromApi = () => (dispatch) => {
+  axios
+    .get("http://localhost:9999/api/jobs")
+    .then((response) => {
+      const allJobsFromApi = response.data;
+      dispatch({ type: types.POPULATE_JOBS, payload: allJobsFromApi });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
