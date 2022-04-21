@@ -1,5 +1,4 @@
 import * as types from "./action-types";
-import { getId } from "./helpers";
 import axios from "axios";
 
 export const addNewJob =
@@ -10,7 +9,6 @@ export const addNewJob =
       jobLink,
       researched,
       notes,
-      id: getId(),
     };
     axios.post("http://localhost:9999/api/jobs", payload).then((res) => {
       dispatch({
