@@ -2,13 +2,23 @@ import * as types from "./action-types";
 import { getId } from "./helpers";
 import axios from "axios";
 
-export const addNewJob = ({ jobTitle, jobLink, researched, notes }) => {
-  return {
-    type: types.ADD_NEW_JOB,
-    payload: { jobTitle, id: getId(), jobLink, researched, notes },
+export const addNewJob =
+  ({ jobTitle, jobLink, researched, notes }) =>
+  (dispatch) => {
+    const payload = {
+      jobTitle,
+      jobLink,
+      researched,
+      notes,
+      id: getId(),
+    };
+    axios.post("http://localhost:9999/api/jobs", payload).then((res) => {
+      dispatch({
+        type: types.ADD_NEW_JOB,
+        payload: { ...payload },
+      });
+    });
   };
-};
-
 export const updateForm = ({ name, value }) => {
   return {
     type: types.UPDATE_FORM,
