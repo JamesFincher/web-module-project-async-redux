@@ -37,6 +37,9 @@ function form(formStateSlice = initialForm, action) {
     case types.UPDATE_TOGGLE: {
       return { ...formStateSlice, researched: !formStateSlice.researched };
     }
+    case types.RESET_FORM: {
+      return { ...initialForm };
+    }
     default:
       return formStateSlice;
   }

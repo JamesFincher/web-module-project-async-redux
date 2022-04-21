@@ -22,3 +22,10 @@ export const updateToggle = () => {
     payload: {},
   };
 };
+
+export const resetForm = () => {
+  return {
+    type: types.RESET_FORM,
+    payload: {},
+  };
+};

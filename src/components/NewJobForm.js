@@ -7,7 +7,14 @@ function NewJobForm(props) {
   const submitHandle = (e) => {
     console.log(e);
     e.preventDefault();
-    console.log("clicked");
+    const payload = {
+      jobTitle: form.jobTitle,
+      jobLink: form.jobLink,
+      researched: form.researched,
+      notes: form.notes,
+    };
+    props.addNewJob(payload);
+    props.resetForm();
   };
   const onToggle = (e) => {
     props.updateToggle();
